@@ -167,7 +167,7 @@ class Model(object):
         _train = trainer.apply_gradients(grads_and_var)
 
         def train(lr, cliprange, obs, returns, masks, actions, values, neglogpacs, states=None):
-            to_advs = returns - values
+            advs = returns - values
 
             adv_mean = np.mean(advs, axis=0, keepdims=True)
             adv_std = np.std(advs, axis=0, keepdims=True)
