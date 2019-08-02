@@ -60,7 +60,7 @@ class GradCamTest(googletest.TestCase):
       predictions = {"classes": tf.argmax(input=logits, axis=1),
                      "probs": tf.nn.softmax(logits, name="softmax")}
 
-      with tf.compact.v1.Session() as sess:
+      with tf.compat.v1.Session() as sess:
         init = tf.global_variables_initializer()
         sess.run(init)
 

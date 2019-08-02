@@ -53,7 +53,7 @@ class GuidedBackprop(SaliencyMask):
 
     self.guided_graph = tf.Graph()
     with self.guided_graph.as_default():
-      self.guided_sess = tf.compact.v1.Session(graph = self.guided_graph)
+      self.guided_sess = tf.compat.v1.Session(graph = self.guided_graph)
       with self.guided_graph.gradient_override_map({'Relu': 'GuidedRelu'}):
         # Import the graph def, and all the variables.
         tf.import_graph_def(graph_def, name='')

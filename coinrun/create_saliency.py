@@ -159,7 +159,7 @@ def enjoy_env_sess():
         setup_utils.setup_and_load(use_cmd_line_args=False, restore_id=model_name, replay=True)
         print("\nComputing saliency for Model {}\{}: {}...".format(idx, len(models)-1, names[model_name]))
 
-        with tf.compact.v1.Session() as sess:
+        with tf.compat.v1.Session() as sess:
             agent, gradient_saliency, action_selector = create_saliency(idx, sess)
             for img in orig_images_low:
                 print('.', end=''); sys.stdout.flush()

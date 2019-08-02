@@ -144,7 +144,7 @@ def enjoy_env_sess(sess):
 def main():
     utils.setup_mpi_gpus()
     setup_utils.setup_and_load()
-    with tf.compact.v1.Session() as sess:
+    with tf.compat.v1.Session() as sess:
         enjoy_env_sess(sess)
 
 if __name__ == '__main__':
