@@ -32,7 +32,7 @@ class TB_Writer(object):
             hyperparams = np.array(Config.get_arg_text())
             hyperparams_tensor = tf.constant(hyperparams)
 
-            summary_op = tf.summary.text("hyperparameters info", hyperparams_tensor)
+            summary_op = tf.compat.v1.summary.text("hyperparameters info", hyperparams_tensor)
             summary = sess.run(summary_op)
 
             tb_writer.add_summary(summary)
